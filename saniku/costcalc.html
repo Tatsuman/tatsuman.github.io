@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title> Cost Calculator </title>
+    
+    <!-- Bootstrap - Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    
+    <!-- Main app - styles ! -->
+    <style>
+        /* We need to move calculator 70px from the top, so it looks nicer ! */
+        body {
+            margin-top: 70px;
+        }
+    </style>
+    
+</head>
+<body>
+    
+    <div class="container">
+        
+        <div class="row">
+            
+            <div class="col-md-6 col-md-offset-3">
+                
+                <div class="panel panel-info">
+                    
+                    <div class="panel-heading">
+                        <h3 class="panel-title"> Cost Calculator </h3>
+                    </div> <!-- End of panel-heading div -->
+                    
+                    <div class="panel-body">
+                        
+                        <form>
+                            
+                            <!-- Number of people field -->
+                            <div class="form-group">
+                                <label class="text-info" for="tbNumberOfPeople"> How many people age 5 years and older? </label>
+                                <input type="number" min="1" class="form-control" id="tbNumberOfPeople" placeholder="Number of people">
+                            </div> <!-- End of form-group div -->
+                            
+                            <!-- Cabin field -->
+                            <div class="form-group">
+                                <label class="text-info" for="cmbLodge"> Please select your preferred cabin type </label>
+                                <select id="cmbLodge" class="form-control">
+                                    <option value="cabin">Cabin
+                                    <option value="Lodge">Lodge
+                                    <option value="yurt">Yurt
+                                    <option value="specialtycabin">Mariposa
+                                    <option value="smallcabin">Alder or Ponderosa
+                                    <option value="dogwoodCeder">Dogwood or Cedar
+                                </select>
+                            </div> <!-- End of form-group div -->
+                            
+                            <!-- Meal field -->
+                            <div class="form-group">
+                                <label class="text-info" for="cmbMeal"> Please choose meal option A (7 meals) or option B (8 meals) </label>
+                                <select id="cmbMeal" class="form-control">
+                                    <option value="A">A
+                                    <option value="B">B
+                                </select>
+                            </div> <!-- End of form-group div -->
+                            
+                            <hr>
+                            
+                            <!-- Total cost field -->
+                            <div class="form-group">
+                                <label class="text-info" for="tbTotalCost"> Here is your total cost: </label>
+                                <div class="input-group">
+                                    <span class="input-group-addon">$</span>
+                                    <input type="text" class="form-control" id="tbTotalCost" placeholder="Total cost">
+                                </div> <!-- End of the input-group div -->
+                            </div> <!-- End of form-group div -->
+                            
+                            <!-- Food cost field -->
+                            <div class="form-group">
+                                <label class="text-info" for="tbFoodCost"> Food cost: </label>
+                                <div class="input-group">
+                                    <span class="input-group-addon">$</span>
+                                    <input type="text" class="form-control" id="tbFoodCost" placeholder="Food cost" readonly="readonly">
+                                </div> <!-- End of the input-group div -->
+                            </div> <!-- End of form-group div -->
+                            
+                            <!-- Lodging cost field -->
+                            <div class="form-group">
+                                <label class="text-info" for="tbLodgingCost"> Lodging cost: </label>
+                                <div class="input-group">
+                                    <span class="input-group-addon">$</span>
+                                    <input type="text" class="form-control" id="tbLodgingCost" placeholder="Lodging cost" readonly="readonly">
+                                </div> <!-- End of the input-group div -->
+                            </div> <!-- End of form-group div -->
+                            
+                            <!-- Camp fee field -->
+                            <div class="form-group">
+                                <label class="text-info" for="tbCampFee"> Camp fee: </label>
+                                <div class="input-group">
+                                    <span class="input-group-addon">$</span>
+                                    <input type="text" class="form-control" id="tbCampFee" placeholder="Camp fee" readonly="readonly">
+                                </div> <!-- End of the input-group div -->
+                            </div> <!-- End of form-group div -->
+                            
+                        </form> <!-- End of the form -->
+                                                
+                    </div> <!-- End of panel-body div -->
+                    
+                </div> <!-- End of panel panel-info div -->
+                
+            </div> <!-- End of the col-md-6 col-md-offset-3 div -->
+            
+        </div> <!-- End of the row div -->
+        
+    </div> <!-- End of the container div -->
+    
+    <!-- jQuery - Latest compiled and minified JavaScript -->
+    <script src="https://code.jquery.com/jquery-1.12.3.min.js" integrity="sha256-aaODHAgvwQW1bFOGXMeX+pC4PZIPsvn2h1sArYOhgXQ=" crossorigin="anonymous"></script>
+   
+    <!-- Bootstrap - Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    
+    <!-- Main app - Javascript ! -->
+    <script>
+    
+        (function () {
+    
+            "use strict";
+
+            var isNumber,
+                getNumberOfMeals,
+                foodCost,
+                getLodgeCostPerPerson,
+                getMinimumLodgeCost,
+                lodgingCost,
+                campFee,
+                totalCost,
+                defaultCostPerMeal = "9", // THIS IS WHAT YOU NEED TO CHANGE, TO CHANGE MEAL COST !
+                defaultCampFeeCost = "20", // THIS IS WHAT YOU NEED TO CHANGE, TO CHANGE CAMP FEE COST !
+                minimumNumberOfPeople = "2"; // THIS IS WHAT YOU NEED TO CHANGE, TO CHANGE MINIMUM NUMBER OF PEOPLE !
+
+            /**
+             * Function for getting number of meals depending on user selection !
+             * @param   {string} mealChoice Variable to hold user selection, A or B, this is taken from drop down Meal field !
+             * @returns {number} Returns correct number of meals !
+             */
+            getNumberOfMeals = function (mealChoice) {
+
+                var numberOfMeals = {
+                    "A": "7",
+                    "B": "8"
+                };
+
+                // So if user selected A, this will be numberOfMeals["A"] = 7, if user selected B, this will be numberOfMeals["B"] = 8 !
+                // We want to do it this way, so its easier in the future to add more options !
+                return numberOfMeals[mealChoice];
+
+            };
+
+            /**
+             * Function for getting Lodge Cost based on user selection !
+             * @param   {string} lodgeChoice Variable to hold user selection, cabin, yurt or specialtycabin, this is taken from drop down Lodge field !
+             * @returns {number} Returns correct Lodge price !
+             */
+            getLodgeCostPerPerson = function (lodgeChoice) {
+
+                var lodgeCostOptions = {
+                    "cabin": "25",
+                    "yurt": "12",
+                    "Lodge": "25",
+                    "smallcabin": "0",
+                    "specialtycabin": "0",
+                    "dogwoodCeder": "25"
+                    
+                };
+
+                // So if user selected cabin, this will be lodgeCostOptions["cabin"] = 25 ... !
+                // We want to do it this way, so its easier in the future to add more options !
+                return lodgeCostOptions[lodgeChoice];
+
+            };
+
+            /**
+             * Function for getting Minimum Total Lodge Cost based on user selection,
+             * this will be used in cases where we have number of people less than minumum number of people !
+             * @param   {string} lodgeChoice Variable to hold user selection, cabin, yurt or specialtycabin, this is taken from drop down Lodge field !
+             * @returns {number} Returns correct Minumum Total Lodge Cost !
+             */
+            getMinimumLodgeCost = function (lodgeChoice) {
+
+                var minimumTotalLodgeCost = {
+
+                    "cabin": "125",
+                    "Lodge": "50",
+                    "yurt": "60",
+                    "specialtycabin": "215",
+                    "smallcabin": "85",
+                    "dogwoodCeder": "50"
+
+                };
+
+                // So if user selected cabin, this will be minimumTotalLodgeCost["cabin"] = 125 ... !
+                // We want to do it this way, so its easier in the future to add more options !
+                return minimumTotalLodgeCost[lodgeChoice];
+
+            };
+
+            /**
+             * Function for calculating total cost !
+             * @param {number} foodCost    Previously calculated Food Cost !
+             * @param {numbe}  lodgingCost Previously calculated Lodging Cost !
+             * @param {number} campFee     Previously calculated Camp Fee !
+             * @returns {number}   Total cost: foodCost + lodgingCost + campFee !
+             */
+            totalCost = function (foodCost, lodgingCost, campFee) {
+
+                var calculatedTotalCost = 0;
+
+                // First we check if foodCost is numeric and if it is we add it to the total cost !
+                if (isNumber(foodCost)) {
+                    calculatedTotalCost = calculatedTotalCost + parseFloat(foodCost);
+                }
+
+                // Next we check if lodgingCost is numeric and if it is we add it to the total cost !
+                if (isNumber(lodgingCost)) {
+                    calculatedTotalCost = calculatedTotalCost + parseFloat(lodgingCost);
+                }
+
+                // Finally we check if campFee is numeric and if it is we add it to the total cost !
+                if (isNumber(campFee)) {
+                    calculatedTotalCost = calculatedTotalCost + parseFloat(campFee);
+                }
+
+                return calculatedTotalCost;
+
+            };
+
+            /**
+             * Function for calculating food cost !
+             * @param   {number} numberOfPeople Variable taken from Number Of People field !
+             * @param   {number} numberOfMeals  Variable taken from Meal field !
+             * @param   {number} costPerMeal    Constant value, represents price per meal !
+             * @returns {number} Food cost: numberOfPeople * numberOfMeals * costPerMeal !
+             */
+            foodCost = function (numberOfPeople, numberOfMeals, costPerMeal) {
+
+                var calculatedFoodCost = 0;
+
+                // We check if costPerMeal is passed to the function, if not we put default value of $9.00 !
+                costPerMeal = costPerMeal || defaultCostPerMeal;
+
+                // First we check if all passed variables are numeric !
+                if (isNumber(numberOfPeople) && isNumber(numberOfMeals) && isNumber(costPerMeal)) {
+                    calculatedFoodCost = parseInt(numberOfPeople, 10) * parseInt(numberOfMeals, 10) * parseFloat(costPerMeal);
+                }
+
+                return calculatedFoodCost;
+
+            };
+
+            /**
+             * Function for calculating lodging cost !
+             * @param   {number} numberOfPeople Variable taken from Number of People field !
+             * @param   {string} lodgeChoice Variable to hold user selection, cabin, yurt or specialtycabin, this is taken from drop down Lodge field !
+             * @returns {number} Lodging Cost: numberOfPeople * lodgeCost !
+             */
+            lodgingCost = function (numberOfPeople, lodgeChoice, minimumNumberOfPeople) {
+
+                var calculatedLodgingCost = 0,
+                    lodgeCost;
+
+                // First we check if all used variables have correct type, 
+                // number of people and minimum number must be numbers, and selected lodge must be a string !
+                if (isNumber(numberOfPeople) && (typeof lodgeChoice === "string") && isNumber(minimumNumberOfPeople)) {
+
+                    // Next we get lodge cost per person, based on lodgeChoice user selected !
+                    lodgeCost = getLodgeCostPerPerson(lodgeChoice);
+
+                    // Finally we calculate lodging cost !
+                    // We start with minimum value for selected lodge !
+                    calculatedLodgingCost = parseFloat(getMinimumLodgeCost(lodgeChoice));
+
+                    // Next, if number of people is bigger than minimum number of people, for each people we add lodge cost (per person) !
+                    if (parseInt(numberOfPeople, 10) > parseInt(minimumNumberOfPeople, 10)) {
+                        calculatedLodgingCost = calculatedLodgingCost + (parseInt(numberOfPeople, 10) - parseInt(minimumNumberOfPeople, 10)) * parseFloat(lodgeCost);
+                    }
+
+                }
+
+                // Modification !
+                return 3 * calculatedLodgingCost;
+
+            };
+
+            /**
+             * Function for calculating camp fee !
+             * @param   {number} numberOfPeople Variable taken from Number Of People field !
+             * @param   {number} costPerPerson  Constant value, represents price per meal !
+             * @returns {number} Camp Fee: numberOfPeople * costPerPerson !
+             */
+            campFee = function (numberOfPeople, costPerPerson) {
+
+                var calculatedCampFee = 0;
+
+                // We check if costPerPerson is passed to the function, if not we put default value of $20.00 !
+                costPerPerson = costPerPerson || defaultCampFeeCost;
+
+                // First we check if all passed variables are numeric !
+                if (isNumber(numberOfPeople) && isNumber(costPerPerson)) {
+                    calculatedCampFee = parseInt(numberOfPeople, 10) * parseFloat(costPerPerson);
+                }
+
+                return calculatedCampFee;
+
+            };
+
+            /**
+             * Helper function for checking whether passed argument is valid number !
+             * @param   {mixed}   n Variable that needs to be checked !
+             * @returns {boolean} Returns true/false depending on whether passed argument is a number or not !
+             */
+            isNumber = function (n) {
+                return !isNaN(parseFloat(n)) && isFinite(n);
+            };
+
+            // Document ready jQuery function, it will be automatically executed when all elements on the page finish loading !
+            $(function () {
+
+                var tbNumberOfPeople,
+                    cmbLodge,
+                    cmbMeal,
+                    tbFoodCost,
+                    tbLodgingCost,
+                    tbCampFee,
+                    tbTotalCost;
+
+                tbNumberOfPeople = $("#tbNumberOfPeople");
+                cmbLodge = $("#cmbLodge");
+                cmbMeal = $("#cmbMeal");
+                tbFoodCost = $("#tbFoodCost");
+                tbLodgingCost = $("#tbLodgingCost");
+                tbCampFee = $("#tbCampFee");
+                tbTotalCost = $("#tbTotalCost");
+
+                // Attaching "on change" listeners to Number of people filed, Lodge field and Meal field,
+                // so whenever any of those three fields is changed, Food Cost, Lodging Cost field, Camp Fee and Total Cost fields
+                // will be automatically updated !
+                tbNumberOfPeople.on("change", function () {
+
+                    // Calculating and setting Food Cost Field !
+                    tbFoodCost.val(foodCost(tbNumberOfPeople.val(), getNumberOfMeals(cmbMeal.val())));
+
+                    // Calculating and setting Lodging Cost field !
+                    tbLodgingCost.val(lodgingCost(tbNumberOfPeople.val(), cmbLodge.val(), minimumNumberOfPeople));
+
+                    // Calculating and setting Camp Fee Field !
+                    tbCampFee.val(campFee(tbNumberOfPeople.val()));
+
+                    // Calculating and setting Total Cost Field !
+                    tbTotalCost.val(totalCost(tbFoodCost.val(), tbLodgingCost.val(), tbCampFee.val()));
+
+                });
+
+                cmbMeal.on("change", function () {
+
+                    // Calculating and setting Food Cost Field !
+                    tbFoodCost.val(foodCost(tbNumberOfPeople.val(), getNumberOfMeals(cmbMeal.val())));
+
+                    // Calculating and setting Total Cost Field !
+                    tbTotalCost.val(totalCost(tbFoodCost.val(), tbLodgingCost.val(), tbCampFee.val()));
+
+                });
+
+                cmbLodge.on("change", function () {
+
+                    // Calculating and setting Lodging Cost field !
+                    tbLodgingCost.val(lodgingCost(tbNumberOfPeople.val(), cmbLodge.val(), minimumNumberOfPeople));
+
+                    // Calculating and setting Total Cost Field !
+                    tbTotalCost.val(totalCost(tbFoodCost.val(), tbLodgingCost.val(), tbCampFee.val()));
+
+                });
+
+            });
+
+        }());
+        
+    </script>
+    
+</body>
+</html>

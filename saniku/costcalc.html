@@ -131,14 +131,17 @@
                 getNumberOfMeals,
                 foodCost,
                 getLodgeCostPerPerson,
+                getMinimumNumberOfPeople,
                 getMinimumLodgeCost,
                 lodgingCost,
                 campFee,
                 totalCost,
                 defaultCostPerMeal = "9", // THIS IS WHAT YOU NEED TO CHANGE, TO CHANGE MEAL COST !
                 defaultCampFeeCost = "20", // THIS IS WHAT YOU NEED TO CHANGE, TO CHANGE CAMP FEE COST !
-                minimumNumberOfPeople = "2"; // THIS IS WHAT YOU NEED TO CHANGE, TO CHANGE MINIMUM NUMBER OF PEOPLE !
+                minimumNumberOfPeople; // THIS IS WHAT YOU NEED TO CHANGE, TO CHANGE MINIMUM NUMBER OF PEOPLE !
+			
 
+			
             /**
              * Function for getting number of meals depending on user selection !
              * @param   {string} mealChoice Variable to hold user selection, A or B, this is taken from drop down Meal field !
@@ -156,20 +159,41 @@
                 return numberOfMeals[mealChoice];
 
             };
+            
+            //Added by Tatsuma
+            //Function for getting number of minimum person for each lodge !
+            getMinimumNumberOfPeople = function (lodgeChoice) {
+	            
+				var lodgeMinimumNumberOfPeople = {
+                    "cabin": "5",
+                    "yurt": "5",
+                    "Lodge": "5",
+                    "smallcabin": "2",
+                    "specialtycabin": "6", //Mariposa
+                    "dogwoodCeder": "2"
+                };
 
+                return lodgeMinimumNumberOfPeople[lodgeChoice]
+
+			}
+			
+			
+			
+			
+			
             /**
              * Function for getting Lodge Cost based on user selection !
              * @param   {string} lodgeChoice Variable to hold user selection, cabin, yurt or specialtycabin, this is taken from drop down Lodge field !
              * @returns {number} Returns correct Lodge price !
              */
-            getLodgeCostPerPerson = function (lodgeChoice) {
+            getLodgeCostPerPerson = function (lodgeChoice) { 
 
                 var lodgeCostOptions = {
                     "cabin": "25",
                     "yurt": "12",
                     "Lodge": "25",
                     "smallcabin": "0",
-                    "specialtycabin": "0",
+                    "specialtycabin": "0",//Mariposa
                     "dogwoodCeder": "25"
                     
                 };
@@ -193,7 +217,7 @@
                     "cabin": "125",
                     "Lodge": "50",
                     "yurt": "60",
-                    "specialtycabin": "215",
+                    "specialtycabin": "215",//Mariposa
                     "smallcabin": "85",
                     "dogwoodCeder": "50"
 
@@ -268,19 +292,22 @@
 
                 var calculatedLodgingCost = 0,
                     lodgeCost;
-
+				
+				minimumNumberOfPeople = getMinimumNumberOfPeople(lodgeChoice);
+				console.log("minimumNumberOfPeople = " + minimumNumberOfPeople);
                 // First we check if all used variables have correct type, 
                 // number of people and minimum number must be numbers, and selected lodge must be a string !
-                if (isNumber(numberOfPeople) && (typeof lodgeChoice === "string") && isNumber(minimumNumberOfPeople)) {
-
+                if (isNumber(numberOfPeople) && (typeof lodgeChoice === "string") && isNumber(minimumNumberOfPeople)) {//このifは何のためにあるのかわからん
+					
                     // Next we get lodge cost per person, based on lodgeChoice user selected !
                     lodgeCost = getLodgeCostPerPerson(lodgeChoice);
-
+                    
                     // Finally we calculate lodging cost !
                     // We start with minimum value for selected lodge !
                     calculatedLodgingCost = parseFloat(getMinimumLodgeCost(lodgeChoice));
 
                     // Next, if number of people is bigger than minimum number of people, for each people we add lodge cost (per person) !
+                    
                     if (parseInt(numberOfPeople, 10) > parseInt(minimumNumberOfPeople, 10)) {
                         calculatedLodgingCost = calculatedLodgingCost + (parseInt(numberOfPeople, 10) - parseInt(minimumNumberOfPeople, 10)) * parseFloat(lodgeCost);
                     }

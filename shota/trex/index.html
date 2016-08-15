@@ -48,12 +48,12 @@ function initMap() {
   	var latlng = new google.maps.LatLng(35.666123,139.733916);
 
   	//Show Info Window
-  	var infoWindow = new google.maps.InfoWindow({
-  		content: '<div id="infoWindow">Hey</div>',
-  		position: latlng,
-  	});
+  	// var infoWindow = new google.maps.InfoWindow({
+  	// 	content: '<div id="infoWindow">Hey</div>',
+  	// 	position: latlng,
+  	// });
 
-  	infoWindow.setMap( map ) ;
+  	// infoWindow.setMap( map ) ;
 
   	// Custom the infobox style
   	var ibOptions = {
@@ -72,6 +72,22 @@ function initMap() {
     		pane: "floatPane",
     		enableEventPropagation: false
     	};
+
+    google.maps.event.addListener(marker, 'click', (function(marker, i) {
+      return function() {
+        var source   = $("#infobox-template").html();
+        var template = Handlebars.compile(source);
+ 
+        var boxText = document.createElement("div");
+        boxText.style.cssText = "margin-top: 8px; background: #fff; padding: 0px;";
+        boxText.innerHTML = template(subSet[i]);
+ 
+        ibOptions.content = boxText
+        var ib = new InfoBox(ibOptions);
+        ib.open(map, marker);
+        map.panTo(ib.getPosition());
+      }
+  }));
 }
 
     </script>

@@ -1,0 +1,22 @@
+/*#infoWindow {
+  width: 200px;
+  height: 200px;
+}
+#infoWindow span{
+  color: blue;
+}*/
+
+html, body {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+#map {
+	height: 100%;
+}
+
+#infoWin{
+	padding: 1em;
+	text-align: center;
+
+}

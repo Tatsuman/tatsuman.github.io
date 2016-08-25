@@ -16,7 +16,50 @@ html, body {
 }
 
 #infoWin{
-	padding: 5em;
+	padding: 1em;
+	/*display: table;*/
 	text-align: center;
+	
+}
 
+#infoWin > div{
+	/*display: table-cell;*/
+	vertical-align: middle;
+
+}
+
+#infoWin > div > h1{
+	font-size:2.5em;
+}
+
+#infoWin > div > blockquote{
+	font-weight:100;
+	font-size: 1.5em;
+}
+
+#infoWin > div > a{
+	text-decoration: none;
+	color: rgb(0,100,0);
+	width: 1em;
+	display: block;
+}
+
+#infoWin > div > a > img{
+	width: 30px;
+}
+
+.gm-style-iw + div {
+	display: none;
+
+div.image{
+	max-width: 256px;
+	max-height: 256px;
+	background-image: url(data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTYuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgd2lkdGg9IjE2cHgiIGhlaWdodD0iMTZweCIgdmlld0JveD0iMCAwIDYxMiA2MTIiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDYxMiA2MTI7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4KPGc+Cgk8cGF0aCBkPSJNNTU4LjMsNTIwLjZINTMuN0MyNC4xLDUyMC42LDAsNDk2LjUsMCw0NjYuOXYtMzIxLjhjMC0xNiw0LjUtMjYuMiwxMy41LTMwLjNjMTkuMS04LjksNDkuNSwxNS43LDUzLjksMTkuM2wyMzguMywxNjUuMyAgIGwyMTEuNi0xNDcuMWMyLjQtMS43LDUuOC0xLjEsNy41LDEuNGMxLjcsMi40LDEuMTAxLDUuOC0xLjM5OSw3LjVMMzA4LjgsMzEwLjRjLTEuOCwxLjMwMS00LjMsMS4zMDEtNi4yLDBMNjEsMTQyLjkgICBjLTAuMS0wLjEtMC4zLTAuMi0wLjQtMC4zYy0xMS4xLTkuNS0zMi42LTIyLjYtNDIuNS0xOGMtNiwyLjgtNy4zLDEyLjctNy4zLDIwLjV2MzIxLjdjMCwyMy42OTksMTkuMyw0Mi45LDQyLjksNDIuOWg1MDQuNiAgIGMyMy43LDAsNDIuOS0xOS4zMDEsNDIuOS00Mi45di0zMjEuN2MwLTIzLjctMTkuMy00Mi45LTQyLjktNDIuOUgxMjQuN2MtMywwLTUuNC0yLjQtNS40LTUuNHMyLjQtNS40LDUuNC01LjRoNDMzLjYgICBjMjkuNjAxLDAsNTMuNywyNC4xLDUzLjcsNTMuN3YzMjEuN0M2MTIsNDk2LjUsNTg3LjksNTIwLjYsNTU4LjMsNTIwLjZ6IiBmaWxsPSIjOTFEQzVBIi8+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPC9zdmc+Cg==);
+}
+
+#mail_icon{
+	background-image: url("images/mail.svg");
+	background-repeat: no-repeat;
+	background-size: 20px;
+	/*background-position: ;*/
 }

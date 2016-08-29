@@ -44,7 +44,7 @@
         // boxText.innerHTML = "<h1>株式会社ティレックス</h1>";
 
         var infoWindowHtml = 
-        "<div id='infoWin'>"
+        "<div id='infoWin' style=''>"
 	        +"<div>"
 	        	+"<h1 style=''>T.REX Inc.</h1>"
 	        	+"<blockquote>Lots of Missions.</blockquote>"
@@ -60,6 +60,10 @@
 	        +"</a>"
         +"</div>"
 
+        +"<div id='more_info'>"
+	        	+"<div>This is a test</div>"
+	    +"</div>";
+
 
         var pxOffX;
         var pxOffY;
@@ -69,9 +73,10 @@
 
         if(viewport.width < mobileWidth){
         	pxOffX = -(viewport.width/2); //it moves infowindow when you move the map
-        	pxOffY = -(viewport.height/1.5);
+        	pxOffY = -(viewport.height/1.6);
         	infoWinWidth = viewport.width
-        	infoWinHeight = viewport.height/2
+        	infoWinHeight = viewport.height/2;
+        	// document.getElementById("infoWin").style.fontSize = "200%";
         }else if(viewport.width >= mobileWidth){
         	pxOffX = -310;
         	pxOffY = -340;
@@ -117,6 +122,7 @@
         theMap.panBy(pxOffX/2,pxOffY/2);
       }
     </script>
+    <script type="text/javascript" src="js/vex.js"></script>
 
     <title>T.REX Inc.</title>
   </head>

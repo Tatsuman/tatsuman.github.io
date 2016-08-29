@@ -67,3 +67,19 @@ html, body {
 	background-size: 20px;
 	/*background-position: ;*/
 }
+
+#more_info{
+	visibility: hidden;
+}
+
+/*@media screen and (max-device-width: 1000px){
+	#map{
+		font-size: 200%;
+	}
+}
+
+@media screen and (min-device-width: 1001px){
+	#map{
+		font-size: 100%;
+	}
+}*/

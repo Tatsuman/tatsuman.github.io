@@ -79,12 +79,6 @@ html, body {
 
 @media screen and (min-width: 0px) and (max-width: 1000px){
 	#content_wrapper{
-		font-size: 200%;
+		font-size: 300%;
 	}
 }
-
-/*@media screen and (min-device-width: 1001px){
-	#content_wrapper{
-		font-size: 100%;
-	}
-}*/

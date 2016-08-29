@@ -81,8 +81,8 @@ html, body {
 
 @media screen and (min-width: 0px) and (max-width: 413px){
 	#content_wrapper{
-		font-size: 200%;
-		transform: scale(1.5);
+		/*font-size: 150%;*/
+		transform: scale(1.2);
 	}
 }
 

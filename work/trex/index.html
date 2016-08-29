@@ -12,7 +12,8 @@
 
     <script type="text/javascript" src="js/infobox.js"></script>
     <script type="text/javascript" src="js/jquery-3.1.0.js"></script>
-    <script type="text/javascript" src="js/jquery.popupoverlay.js"></script>。<script type="text/javascript" src="js/p5.js"></script>
+    <script type="text/javascript" src="js/jquery.popupoverlay.js"></script>
+    <script type="text/javascript" src="js/p5.js"></script>
     <script type="text/javascript">
     
 
@@ -95,15 +96,15 @@
 
         if(viewport.width < mobileWidth){
         	pxOffX = -(viewport.width/2); //it moves infowindow when you move the map
-        	pxOffY = -(viewport.height/2.7);
+        	pxOffY = -(viewport.height/2);
         	infoWinWidth = viewport.width
-        	infoWinHeight = viewport.height/4;
+        	infoWinHeight = viewport.height/3;
         	// document.getElementById("infoWin").style.fontSize = "200%";
         }else if(viewport.width >= mobileWidth){
         	pxOffX = -310;
         	pxOffY = -160;
         	infoWinWidth = 280
-        	infoWinHeight = infoWinWidth *0.65; //It is calculating height 
+        	infoWinHeight = infoWinWidth *0.8; //It is calculating height 
         }
 
 

@@ -11,25 +11,30 @@ html, body {
 	margin: 0;
 	padding: 0;
 }
+
 #map {
 	height: 100%;
 }
 
+#content_wrapper{
+	position: relative;
+}
+
 #infoWin{
 	padding: 1em;
-	/*display: table;*/
 	text-align: center;
-	
+	/*position: absolute;
+	margin: auto;*/
+	vertical-align: middle;
 }
 
 #infoWin > div{
-	/*display: table-cell;*/
 	vertical-align: middle;
 
 }
 
 #infoWin > div > h1{
-	font-size:2.5em;
+	font-size: 2.5em;
 }
 
 #infoWin > div > blockquote{
@@ -72,14 +77,14 @@ html, body {
 	visibility: hidden;
 }
 
-/*@media screen and (max-device-width: 1000px){
-	#map{
+@media screen and (min-width: 0px) and (max-width: 1000px){
+	#content_wrapper{
 		font-size: 200%;
 	}
 }
 
-@media screen and (min-device-width: 1001px){
-	#map{
+/*@media screen and (min-device-width: 1001px){
+	#content_wrapper{
 		font-size: 100%;
 	}
 }*/

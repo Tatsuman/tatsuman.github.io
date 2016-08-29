@@ -11,6 +11,7 @@
 
     <script type="text/javascript" src="js/infobox.js"></script>
     <script type="text/javascript" src="js/jquery-3.1.0.js"></script>
+    <script type="text/javascript" src="js/jquery.popupoverlay.js"></script>
     <script type="text/javascript">
     
 
@@ -47,23 +48,35 @@
         "<div id='content_wrapper'>"
 	        +"<div id='infoWin'>"
 		        +"<div>"
-		        	+"<h1 style=''>T.REX Inc.</h1>"
+		        	+"<h1 style=''>T.Rex Trading Inc.</h1>"
 		        	+"<blockquote>Lots of Missions.</blockquote>"
 		          // +"<h3>Contact Us</h3>     <a href='mailto:info@trext.tokyo'>info@trext.tokyo</a>"
 		        	+"<h3>Location</h3>       <p>#223 4-3-11, Roppongi Minato, Tokyo Japan 1060032</p>"
 		        	+"<h3>CEO</h3><p>Shinichi Watanabe</p>"
 		        +"</div>"
 		        // +"<a href='mailto:info@trext.tokyo'><img src='images/mail.svg'></a>"
-		        +"<a href='#'><h3>Business</h3></a>"
+		        // +"<a href='#'><h3>Business</h3></a>"
 		        +"<a href='mailto:test@test.com'>"
 			        +"<div id='mail_icon'>"
 			        +"</div>"
 		        +"</a>"
 	        +"</div>"
 
-	        +"<div id='more_info'>"
-		        	+"<div>This is a test</div>"
-		    +"</div>"
+	     //    +"<div id='more'>"
+		    // +"</div>"
+			   //  +"<h2>Business</h2>"
+			   //  +"<ul>"
+			   //  	+"<li>Blanket</li>"
+			   //  	+"<li>Mattress & Pillow</li>"
+			   //  	+"<li>Sheets & Pillow case</li>"
+			   //  	+"<li>Sheets</li>"
+			   //  	+"<li>Other accessaries</li>"
+			   //  	+"<li>Skin care oil</li>"
+			   //  	+"<li>A sales consultant</li>"
+			   //  	+"<li>Logistics</li>"
+			   //  	+"<li>Solar power station</li>"
+			   //  +"</ul>"
+		    // +"<div>"
 		+"</div> <!-- Close content_wrapper -->"
 
 
@@ -131,6 +144,11 @@
 
   <body onload="initialize()">
     <div id="map_canvas" style="width: 100%; height: 100%"></div>
+    <script>
+    	$(document).ready(function() {
+      		$('#more').popup();
+	    });
+    </script>
   </body>
 
 </html>

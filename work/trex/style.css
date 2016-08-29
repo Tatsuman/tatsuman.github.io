@@ -73,12 +73,12 @@ html, body {
 	/*background-position: ;*/
 }
 
-#more_info{
-	visibility: hidden;
+#more{
+	
 }
 
 @media screen and (min-width: 0px) and (max-width: 1000px){
 	#content_wrapper{
-		font-size: 300%;
+		font-size: 200%;
 	}
 }

@@ -7,9 +7,11 @@
 }*/
 
 html, body {
+	width: 100%;
 	height: 100%;
 	margin: 0;
 	padding: 0;
+	font-family: Roboto,Arial,sans-serif;
 }
 
 #map {
@@ -18,14 +20,19 @@ html, body {
 
 #content_wrapper{
 	position: relative;
+	height: 100%;
 }
 
 #infoWin{
 	padding: 1em;
 	text-align: center;
-	/*position: absolute;
-	margin: auto;*/
-	vertical-align: middle;
+	position: absolute;
+	margin: auto;
+	top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+	/*vertical-align: middle;*/
 }
 
 #infoWin > div{
@@ -40,6 +47,14 @@ html, body {
 #infoWin > div > blockquote{
 	font-weight:100;
 	font-size: 1.5em;
+}
+
+#infoWin > a{
+	text-decoration: none;
+	color: rgb(0,0,0);
+	font-size: 1.5em;
+	font-weight: 100;
+	padding-top: 0.6em;
 }
 
 #infoWin > div > a{
@@ -73,6 +88,115 @@ html, body {
 	/*background-position: ;*/
 }
 
+#more_button{
+	width: 20px;
+	height: 20px;
+	background-color: black;
+}
+
+#more{
+	background-color: white;
+	padding: 2em;
+	
+	width: 80%;
+	height: 80%;
+}
+
+#more > div{
+	width: 50%;
+}
+
+#more > div:first-child{
+	float: left;
+}
+
+#more > div:last-child{
+	float: right;
+}
+
+#more > div > ul,p{
+	list-style: none;
+	padding-left: 0em;
+	margin-top: 0;
+	font-weight: 100;
+}
+
+#more > div > ul > li{
+	font-weight: 100;
+}
+
+#more > div > h2{
+	font-weight: 100;
+	margin-bottom: 0.2em;
+}
+
+/*#more > div.trexLogo{
+	height: 100%;
+	background: url("images/trex.svg") no-repeat;
+	background-size: 60%;
+	background-position: 50% 100%;
+}*/
+
+#more > div.info{
+	text-align: right;
+}
+
+#sns{
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	margin: 0;
+	padding: 0;
+}
+
+#sns > li{
+	/*float: left;*/
+	width: 20px;
+	height: 20px;
+	background-size: 20px 20px;
+	list-style: none;
+	margin-right: 1em;
+}
+
+#sns > li:last-child{
+	margin-right: 0;	
+}
+
+#sns > li:nth-child(1){
+	background-image: url("images/mail.svg");
+}
+
+#sns > li:nth-child(2){
+	background-image: url("images/sns/line.svg");
+}
+
+#sns > li:nth-child(3){
+	background-image: url("images/sns/yahoo.svg");
+}
+
+#sns > li:nth-child(4){
+	background-image: url("images/sns/amazon.svg");
+}
+
+#sns > li:nth-child(5){
+	background-image: url("images/sns/rakuten.svg");
+}
+
+#sns > li:nth-child(6){
+	background-image: url("images/sns/instagram.svg");
+}
+#sns > li > a{
+	width: 20px;
+	height: 20px;
+}
+#test{
+	width: 20px;
+	height: 20px;
+	background-color: black;
+	float: right;
+}
+
+
 @media screen and (min-width: 414px){
 	#content_wrapper{
 		font-size: 100%;
@@ -85,6 +209,7 @@ html, body {
 		transform: scale(1.2);
 	}
 }
+
 
 /*Problem is the font size is controlled by CSS but the window size is controlled by JS...*/
 

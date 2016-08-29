@@ -12,7 +12,7 @@
 
     <script type="text/javascript" src="js/infobox.js"></script>
     <script type="text/javascript" src="js/jquery-3.1.0.js"></script>
-    <script type="text/javascript" src="js/jquery.popupoverlay.js"></script>
+    <script type="text/javascript" src="js/jquery.popupoverlay.js"></script>。<script type="text/javascript" src="js/p5.js"></script>
     <script type="text/javascript">
     
 
@@ -41,10 +41,6 @@
     		height : $(window).height()
 		};
 
-        // var boxText = document.createElement("div");
-        // boxText.style.cssText = "border: 1px solid black; margin-top: 8px; background: yellow; padding: 5px;";
-        // boxText.innerHTML = "<h1>株式会社ティレックス</h1>";
-
         var infoWindowHtml = 
         "<div id='content_wrapper'>"
 	        +"<div id='infoWin'>"
@@ -52,33 +48,42 @@
 		        	+"<h1 style=''>T.Rex Trading Inc.</h1>"
 		        	+"<blockquote>Lots of Missions.</blockquote>"
 		          // +"<h3>Contact Us</h3>     <a href='mailto:info@trext.tokyo'>info@trext.tokyo</a>"
-		        	+"<p>#223 4-3-11, Roppongi Minato, Tokyo Japan 1060032</p>"
+		        	// +"<p>4-3-11 #223, Roppongi Minato, Tokyo Japan 1060032</p>"
 		        	// +"<h3>CEO</h3><p>Shinichi Watanabe</p>"
 		        +"</div>"
-		        // +"<a href='mailto:info@trext.tokyo'><img src='images/mail.svg'></a>"
-		        // +"<a href='#'><h3>Business</h3></a>"
-		        +"<a href='mailto:test@test.com'>"
-			        +"<div id='mail_icon'>"
-			        +"</div>"
-		        +"</a>"
+		        +"<ul id='sns'>"
+		        	+"<li><a href='#'></a></li>"
+		        	+"<li><a href='#'></a></li>"
+		        	+"<li><a href='#'></a></li>"
+		        	+"<li><a href='#'></a></li>"
+		        	+"<li><a href='#'></a></li>"
+		        	+"<li><a href='#'></a></li>"
+		        	
+		        +"</ul>"
+		        +"<a href='#'> + </a>"
 	        +"</div>"
+
+
+	        +"<script>"
+	    		// +"$(document).ready(function() {"
+	      // 			+"$('#more').popup();"
+		    	// +"});"
+	    	+"<\/script>"
 
 	     //    +"<div id='more'>"
 			   //  +"</div>"
 				  //   +"<h2>Business</h2>"
 				  //   +"<ul>"
-				  //   	+"<li>Blanket</li>"
-				  //   	+"<li>Mattress & Pillow</li>"
-				  //   	+"<li>Sheets & Pillow case</li>"
-				  //   	+"<li>Sheets</li>"
-				  //   	+"<li>Other accessaries</li>"
-				  //   	+"<li>Skin care oil</li>"
-				  //   	+"<li>A sales consultant</li>"
-				  //   	+"<li>Logistics</li>"
-				  //   	+"<li>Solar power station</li>"
+				  //   	+"<li>Business consultant</li>"
+				  //   	+"<li>Web development</li>"
+				  //   	+"<li>Software development</li>"
+				  //   	+"<li>Import/Export</li>"
+				  //   	+"<li>Warehouse</li>"
 				  //   +"</ul>"
 			   //  +"</div>"
 		    // +"</div>"
+		    // +"<button id='more_button'></button>"
+		    
 		+"</div> <!-- Close content_wrapper -->"
 
 
@@ -90,15 +95,15 @@
 
         if(viewport.width < mobileWidth){
         	pxOffX = -(viewport.width/2); //it moves infowindow when you move the map
-        	pxOffY = -(viewport.height/1.5);
+        	pxOffY = -(viewport.height/2.7);
         	infoWinWidth = viewport.width
-        	infoWinHeight = viewport.height/2;
+        	infoWinHeight = viewport.height/4;
         	// document.getElementById("infoWin").style.fontSize = "200%";
         }else if(viewport.width >= mobileWidth){
         	pxOffX = -310;
-        	pxOffY = -340;
+        	pxOffY = -160;
         	infoWinWidth = 280
-        	infoWinHeight = infoWinWidth *1.25; //It is calculating height 
+        	infoWinHeight = infoWinWidth *0.65; //It is calculating height 
         }
 
 
@@ -141,16 +146,84 @@
     </script>
     <!-- <script type="text/javascript" src="js/vex.js"></script> -->
 
-    <title>T.REX Inc.</title>
+    <title>T.Rex Trading Inc.</title>
   </head>
 
+
+ 	
+
   <body onload="initialize()">
+	<a id="test" href="#more"></a>
     <div id="map_canvas" style="width: 100%; height: 100%"></div>
-    <script>
-    	$(document).ready(function() {
-      		$('#more').popup();
-	    });
-    </script>
+	<div id='more'>
+	<script type="text/javascript">
+		function setup(){
+			createCanvas(100, 100);
+  			img = loadImage("images/trex.svg"); 
+		}
+		function draw(){
+			image(img, 0 , 0);
+		}
+	</script>
+		<!-- <div class="trexLogo">
+			
+		</div> -->
+		<div class="info">
+				<h2>Business</h2>
+				<ul>
+					<li>Business consultant</li>
+			    	<li>Web development</li>
+			    	<li>Software development</li>
+			    	<li>Import/Export</li>
+			    	<li>Warehouse</li>
+				</ul>
+				<h2>Network</h2>
+				<ul>
+					<li>Japan</li>
+			    	<li>U.S.</li>
+			    	<li>China</li>
+			    	<li>Italy</li>
+			    	<li>Germany</li>
+			    	<li>Philippines</li>
+				</ul>
+				<h2>CEO</h2>
+				<p>Shinichi Watanabe</p>
+		</div>
+	</div>
+	<script>
+
+		    // window.onload = function(){
+		   //  		var moreButton = document.getElementById('more_button')
+		   //  		// console.log(moreButton)
+		   //  		// console.log(document.getElementById('infoWin'));
+		   //  		moreButton.onclick = function(){
+		   //  			$('#more').popup('show');
+		   //  			console.log("Hey!");
+					// }
+
+					// It's not loading the id of from infoWindow html. I need to get that loaded someway.
+			// };
+
+			// var createButton = document.createElement("button");
+
+			var moreButton = document.getElementById('test')
+		    		// console.log(moreButton)
+		    		// console.log(document.getElementById('infoWin'));
+		    		moreButton.onclick = function(){
+		    			$('#more').popup('show');
+					}
+
+		</script>
+
   </body>
 
 </html>
+
+
+<!-- Memo
+
+What do I need to do?
+- Create Modal or overlay window
+- Simplify infos
+-  
+-->

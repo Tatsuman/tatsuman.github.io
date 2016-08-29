@@ -99,7 +99,7 @@ html, body {
 	padding: 2em;
 	
 	width: 80%;
-	height: 80%;
+	
 }
 
 #more > div{
@@ -201,12 +201,18 @@ html, body {
 	#content_wrapper{
 		font-size: 100%;
 	}
+	#more{
+		height: 80%;
+	}
 }
 
 @media screen and (min-width: 0px) and (max-width: 413px){
 	#content_wrapper{
 		/*font-size: 150%;*/
 		transform: scale(1.2);
+	}
+	#more{
+		height: 100%;
 	}
 }
 

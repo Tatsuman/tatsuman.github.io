@@ -77,7 +77,7 @@ html, body {
 	
 }
 
-@media screen and (min-width: 0px) and (max-width: 1000px){
+@media screen and (min-width: 0px) and (max-width: 767px){
 	#content_wrapper{
 		font-size: 200%;
 	}

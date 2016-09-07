@@ -6,6 +6,34 @@
   color: blue;
 }*/
 
+@font-face {
+	font-family: PixelMplus12;
+	src: url('fonts/PixelMplus/PixelMplus12-Bold.ttf') format("truetype");
+	font-weight: 400;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: PixelMplus12;
+	src: url('fonts/PixelMplus/PixelMplus12-Regular.ttf') format("truetype");
+	font-weight: 100;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: PixelMplus10;
+	src: url('fonts/PixelMplus/PixelMplus10-Bold.ttf') format("truetype");
+	font-weight: 400;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: PixelMplus10;
+	src: url('fonts/PixelMplus/PixelMplus10-Regular.ttf') format("truetype");
+	font-weight: 100;
+	font-style: normal;
+}
+
 html, body {
 	width: 100%;
 	height: 100%;
@@ -21,6 +49,9 @@ html, body {
 #content_wrapper{
 	position: relative;
 	height: 100%;
+	border: 1px solid black;
+	border-radius: 2px;
+	background-color: rgba(255,255,255,30);
 }
 
 #infoWin{
@@ -33,6 +64,8 @@ html, body {
     left: 0;
     right: 0;
     margin: auto;
+    width: 80%;
+    height: 70%;
 	/*vertical-align: middle;*/
 }
 
@@ -42,12 +75,16 @@ html, body {
 }
 
 #infoWin > div > h1{
-	font-size: 2.5em;
+	font-family: PixelMplus12;
+	font-weight: 400;
+	font-size: 2em;
 }
 
 #infoWin > div > blockquote{
+	font-family: PixelMplus12;
 	font-weight:100;
 	font-size: 1.5em;
+
 }
 
 #infoWin > a{
@@ -140,8 +177,14 @@ html, body {
 
 #more > div.info{
 	text-align: right;
+	font-family: pixelMplus12;
+	font-weight: 100;
+	line-height: 1.5em;
 }
 
+#more > div.info > h2{
+	font-weight: 400;
+}
 #sns{
 	width: 100%;
 	display: flex;
@@ -168,23 +211,23 @@ html, body {
 }
 
 #sns > li:nth-child(2){
-	background-image: url("images/sns/line.svg");
+	background-image: url("images/sns/8bit/line.svg");
 }
 
 #sns > li:nth-child(3){
-	background-image: url("images/sns/yahoo.svg");
+	background-image: url("images/sns/8bit/yahoo.svg");
 }
 
 #sns > li:nth-child(4){
-	background-image: url("images/sns/amazon.svg");
+	background-image: url("images/sns/8bit/amazon.svg");
 }
 
 #sns > li:nth-child(5){
-	background-image: url("images/sns/rakuten.svg");
+	background-image: url("images/sns/8bit/rakuten.svg");
 }
 
 #sns > li:nth-child(6){
-	background-image: url("images/sns/instagram.svg");
+	background-image: url("images/sns/8bit/instagram.svg");
 }
 #sns > li > a{
 	width: 20px;
@@ -195,6 +238,39 @@ html, body {
 	height: 20px;
 	background-color: black;
 	float: right;
+}
+
+.more_open{
+	margin-top: 2em;
+	border: 0px solid black;
+	background-color: white;
+	font-family: pixelMplus12;
+	font-weight: 100;
+	-webkit-animation: buttonAnimation 1s infinite;
+   	-moz-animation: buttonAnimation 1s infinite;
+   	-o-animation: buttonAnimation 1s infinite;
+    animation: buttonAnimation 1s infinite;
+}
+
+@keyframes buttonAnimation {
+  0%   { opacity:1; }
+  50%  { opacity:0; }
+  100% { opacity:1; }
+}
+@-o-keyframes buttonAnimation{
+  0%   { opacity:1; }
+  50%  { opacity:0; }
+  100% { opacity:1; }
+}
+@-moz-keyframes buttonAnimation{
+  0%   { opacity:1; }
+  50%  { opacity:0; }
+  100% { opacity:1; }
+}
+@-webkit-keyframes buttonAnimation{
+  0%   { opacity:1; }
+  50%  { opacity:0; }
+  100% { opacity:1; }
 }
 
 

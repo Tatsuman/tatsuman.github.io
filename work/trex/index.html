@@ -54,7 +54,7 @@
 		        	+"<li><a href='#'></a></li>"
 		        	+"<li><a href='#'></a></li>"
 		        +"</ul>"
-		        +"<a href='#more'> + </a>"
+		        +"<button class='more_open'>More info</button>"
 	        +"</div>"
 		    
 		+"</div> <!-- Close content_wrapper -->"
@@ -90,9 +90,7 @@
           ,pixelOffset: new google.maps.Size(pxOffX, pxOffY) //You can fix postion of info window
           ,zIndex: null
           ,boxStyle: { 
-            background: "url('images/white.jpg')"
-            ,opacity: 0.90
-            ,width: infoWinWidth.toString() + "px"
+            width: infoWinWidth.toString() + "px"
             ,height: infoWinHeight.toString() + "px"　//This is the width of the window.
            }
           ,infoBoxClearance: new google.maps.Size(1, 1)
@@ -121,51 +119,42 @@
     <title>T.Rex Trading Inc.</title>
   </head>
 
-
- 	
-
   <body onload="initialize()">
-	<a id="test" href="#more"></a>
+    <!-- <a id="test" href="#more"></a> -->
     <div id="map_canvas" style="width: 100%; height: 100%"></div>
-	<div id='more'>
-	
-		<!-- <div class="trexLogo">
+    <div id='more'>
+		  <div class="info">
+  				<h2>Business</h2>
+  				<ul>
+  					<li>Business consultant</li>
+  			    	<li>Web development</li>
+  			    	<li>Software development</li>
+  			    	<li>Import/Export</li>
+  			    	<li>Warehouse</li>
+				  </ul>
+  				<h2>Network</h2>
+  				<ul>
+  					<li>Japan</li>
+  			    	<li>U.S.</li>
+  			    	<li>China</li>
+  			    	<li>Italy</li>
+  			    	<li>Germany</li>
+  			    	<li>Philippines</li>
+  				</ul>
+  				<h2>CEO</h2>
+  				<p>Shinichi Watanabe</p>
+  		</div><!-- Close info -->
+    </div><!-- Close more -->
+    <script type="text/javascript" src="js/jquery-3.1.0.js"></script>
+    <script>
 			
-		</div> -->
-		<div class="info">
-				<h2>Business</h2>
-				<ul>
-					<li>Business consultant</li>
-			    	<li>Web development</li>
-			    	<li>Software development</li>
-			    	<li>Import/Export</li>
-			    	<li>Warehouse</li>
-				</ul>
-				<h2>Network</h2>
-				<ul>
-					<li>Japan</li>
-			    	<li>U.S.</li>
-			    	<li>China</li>
-			    	<li>Italy</li>
-			    	<li>Germany</li>
-			    	<li>Philippines</li>
-				</ul>
-				<h2>CEO</h2>
-				<p>Shinichi Watanabe</p>
-		</div>
-	</div>
-	<script>
-			var moreButton = document.getElementById('test')
-		    		// console.log(moreButton)
-		    		// console.log(document.getElementById('infoWin'));
-		    		moreButton.onclick = function(){
-		    			$('#more').popup('show');
-					}
-
-		</script>
+          $(document).ready(function() {
+		    			$('#more').popup();
+					})
+    </script>
 
   </body>
-  <script type="text/javascript" src="js/jquery-3.1.0.js"></script>
+  <!-- <script type="text/javascript" src="js/jquery-3.1.0.js"></script> -->
     <script type="text/javascript" src="js/jquery.popupoverlay.js"></script>
     <script type="text/javascript" src="js/p5.js"></script>
 

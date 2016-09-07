@@ -187,6 +187,17 @@ html, body {
 	left: 30px;
 }
 
+#more > button.more_close{
+	font-weight: 100;
+	font-size: 1em;
+	color: gray;
+	position: absolute;
+	top: 1.5em;
+	left: 1.5em;
+	background: none;
+	border: 0 black solid;
+}
+
 #sns{
 	width: 100%;
 	display: flex;
@@ -291,7 +302,7 @@ html, body {
 		transform: scale(1.2);
 	}
 	#more{
-		height: 100%;
+		height: none;
 	}
 }
 

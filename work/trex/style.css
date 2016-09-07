@@ -110,6 +110,10 @@ html, body {
 	display: none;
 }
 
+.gm-style img{
+	z-index: 999;
+}
+
 /*div.image{
 	max-width: 256px;
 	max-height: 256px;
@@ -133,11 +137,9 @@ html, body {
 }
 
 #more{
-	background-color: white;
 	padding: 2em;
-	
 	width: 80%;
-	
+	background-color: white;
 }
 
 #more > div{
@@ -168,13 +170,6 @@ html, body {
 	margin-bottom: 0.2em;
 }
 
-/*#more > div.trexLogo{
-	height: 100%;
-	background: url("images/trex.svg") no-repeat;
-	background-size: 60%;
-	background-position: 50% 100%;
-}*/
-
 #more > div.info{
 	text-align: right;
 	font-family: pixelMplus12;
@@ -185,6 +180,13 @@ html, body {
 #more > div.info > h2{
 	font-weight: 400;
 }
+
+#more > img.trexImage{
+	position: absolute;
+	bottom: 30px;
+	left: 30px;
+}
+
 #sns{
 	width: 100%;
 	display: flex;

@@ -21,6 +21,7 @@
            zoom: 15
           ,center: secheltLoc
           ,mapTypeId: google.maps.MapTypeId.ROADMAP
+          ,clickableIcons: false 
         };
         var theMap = new google.maps.Map(document.getElementById("map_canvas"), myMapOptions);
 
@@ -81,33 +82,23 @@
 
 
         // console.log(toString(infoWinWidth) + "px");
-        console.log(infoWinWidth.toString() + "px");
+        // console.log(infoWinWidth.toString() + "px");
 
         var myOptions = {
            content: infoWindowHtml
-          ,disableAutoPan: false
-          ,maxWidth: 0
           ,pixelOffset: new google.maps.Size(pxOffX, pxOffY) //You can fix postion of info window
-          ,zIndex: null
           ,boxStyle: { 
             width: infoWinWidth.toString() + "px"
             ,height: infoWinHeight.toString() + "px"　//This is the width of the window.
            }
-          ,infoBoxClearance: new google.maps.Size(1, 1)
-          ,isHidden: false
-          ,pane: "floatPane"
-          ,enableEventPropagation: false
         };
 
-        // console.log(myOptions.boxStyle.width);
+        var ib = new InfoBox(myOptions);
 
         //Add icon click function
-        google.maps.event.addListener(marker, "click", function (e) {
+        marker.addListener("click", function () {
           ib.open(theMap, this);
-          map.setCenter(marker.getPosition());
         });
-
-        var ib = new InfoBox(myOptions);
 
         ib.open(theMap, marker);
 
@@ -123,6 +114,7 @@
     <!-- <a id="test" href="#more"></a> -->
     <div id="map_canvas" style="width: 100%; height: 100%"></div>
     <div id='more'>
+      <img class="trexImage" src="images/walk.gif">
 		  <div class="info">
   				<h2>Business</h2>
   				<ul>
@@ -135,7 +127,7 @@
   				<h2>Network</h2>
   				<ul>
   					<li>Japan</li>
-  			    	<li>U.S.</li>
+  			    	<li>US</li>
   			    	<li>China</li>
   			    	<li>Italy</li>
   			    	<li>Germany</li>
@@ -147,7 +139,6 @@
     </div><!-- Close more -->
     <script type="text/javascript" src="js/jquery-3.1.0.js"></script>
     <script>
-			
           $(document).ready(function() {
 		    			$('#more').popup();
 					})

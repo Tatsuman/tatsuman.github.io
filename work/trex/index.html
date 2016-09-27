@@ -44,7 +44,7 @@
         "<div id='content_wrapper'>"
 	        +"<div id='infoWin'>"
 		        +"<div>"
-		        	+"<blockquote>I'm Here Because Of Lots Of Missions</blockquote>"
+		        	+"<blockquote>I'm Here Because Of <br />Lots Of Missions</blockquote>"
               +"<h1 style=''>T.Rex Trading Inc.</h1>"
 		        +"</div>"
 		        +"<ul id='sns'>"
@@ -68,7 +68,7 @@
         	pxOffX = -(viewport.width/2); //it moves infowindow when you move the map
         	pxOffY = -(viewport.height/1.6);
         	infoWinWidth = viewport.width
-        	infoWinHeight = viewport.height/2.4;
+        	infoWinHeight = 200;
         	// document.getElementById("infoWin").style.fontSize = "200%";
         }else if(viewport.width >= mobileWidth){ //desktop
         	pxOffX = -280;
@@ -114,6 +114,8 @@
       <!-- <img class="trexImage" src="images/walk.gif"> -->
       <button class="more_close">✖︎</button>
 		  <div class="info">
+          <h2>Address</h2>
+          <p>4-3-11 #223 Roppongi Minato, Tokyo Japan 1060032 </p>
   				<h2>Business</h2>
   				<ul>
   					<li>Business consultant</li>
@@ -131,8 +133,6 @@
   			    	<li>Germany</li>
   			    	<li>Philippines</li>
   				</ul>
-          <h2>Address</h2>
-          <p>4-3-11 #223 Roppongi Minato, Tokyo Japan 1060032 </p>
   				<h2>CEO</h2>
   				<p>Shinichi Watanabe</p>
           <div class="shops">

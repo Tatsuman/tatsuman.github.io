@@ -40,6 +40,7 @@ html, body {
 	margin: 0;
 	padding: 0;
 	font-family: Roboto,Arial,sans-serif;
+	overflow:hidden;
 }
 
 #map {
@@ -84,7 +85,7 @@ html, body {
 	font-family: PixelMplus12;
 	font-weight:100;
 	font-size: 1.5em;
-
+	margin: 0 1em;
 }
 
 #infoWin > a{
@@ -138,8 +139,11 @@ html, body {
 
 #more{
 	padding: 2em;
-	width: 80%;
+	width: 400px;
+	height: 400px;
 	background-color: white;
+	margin:2em;
+	overflow: scroll;
 }
 
 #more > div{
@@ -159,22 +163,25 @@ html, body {
 	padding-left: 0em;
 	margin-top: 0;
 	font-weight: 100;
+	font-size: 0.8em;
 }
 
 #more > div > ul > li{
 	font-weight: 100;
+
 }
 
 #more > div > h2{
 	font-weight: 100;
 	margin-bottom: 0.2em;
+	font-size: 1.2em;
 }
 
 #more > div.info{
 	text-align: right;
 	font-family: pixelMplus12;
 	font-weight: 100;
-	line-height: 1.5em;
+	line-height: 1.2em;
 }
 
 #more > div.info > h2{
@@ -198,6 +205,47 @@ html, body {
 	border: 0 black solid;
 }
 
+div.shops{
+	height: 20px;
+	width: calc(60px + 2em);
+	float: right;
+}
+
+div.shops > ul{
+	height: 100%;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+div.shops > ul > li{
+	width: 20px;
+	height: 20px;
+	float: left;
+	list-style: none;
+	margin-right: 1em;
+}
+
+div.shops > ul > li:last-child{
+	margin: 0;
+}
+
+div.shops > ul > li > a{
+	width: 20px;
+	height: 20px;
+	padding-right: 20px;
+}
+
+div.shops > ul > li > a > span{
+	width: 20px;
+	height: 20px;
+	display: none;
+}
+
+div.shops:after{
+	clear: both;
+}
+
 #sns{
 	width: 100%;
 	display: flex;
@@ -219,33 +267,52 @@ html, body {
 	margin-right: 0;	
 }
 
-#sns > li:nth-child(1){
+li.mail{
 	background-image: url("images/mail.svg");
+	background-repeat: no-repeat;
+	background-position:center center;
 }
 
-#sns > li:nth-child(2){
+li.line{
 	background-image: url("images/sns/8bit/line.svg");
+	background-repeat: no-repeat;
+	background-position:center center;
 }
 
-#sns > li:nth-child(3){
+li.yahoo{
 	background-image: url("images/sns/8bit/yahoo.svg");
+	background-repeat: no-repeat;
+	background-position:center center;
 }
 
-#sns > li:nth-child(4){
+li.amazon{
 	background-image: url("images/sns/8bit/amazon.svg");
+	background-repeat: no-repeat;
+	background-position:center center;
 }
 
-#sns > li:nth-child(5){
+li.rakuten{
 	background-image: url("images/sns/8bit/rakuten.svg");
+	background-repeat: no-repeat;
+	background-position:center center;
 }
 
-#sns > li:nth-child(6){
+li.instagram{
 	background-image: url("images/sns/8bit/instagram.svg");
+	background-repeat: no-repeat;
+	background-position:center center;
 }
 #sns > li > a{
+	display: inline-block;
 	width: 20px;
 	height: 20px;
+	text-decoration: none;
 }
+
+#sns > li > a > span{
+	display: none;
+}
+
 #test{
 	width: 20px;
 	height: 20px;
@@ -263,6 +330,16 @@ html, body {
    	-moz-animation: buttonAnimation 1s infinite;
    	-o-animation: buttonAnimation 1s infinite;
     animation: buttonAnimation 1s infinite;
+}
+
+#copyright{
+	position: absolute;
+	top: 0;
+	right: 0;
+	font-size: 10px;
+	color: #111;
+	background-color: rgba(255,255,255,0.5);
+	padding: 0 1em;
 }
 
 @keyframes buttonAnimation {
@@ -292,7 +369,8 @@ html, body {
 		font-size: 100%;
 	}
 	#more{
-		height: 80%;
+		height: 70%;
+		max-height: 420px;
 	}
 }
 

@@ -44,16 +44,13 @@
         "<div id='content_wrapper'>"
 	        +"<div id='infoWin'>"
 		        +"<div>"
-		        	+"<h1 style=''>T.Rex Trading Inc.</h1>"
-		        	+"<blockquote>Lots of Missions.</blockquote>"
+		        	+"<blockquote>I'm Here Because Of Lots Of Missions</blockquote>"
+              +"<h1 style=''>T.Rex Trading Inc.</h1>"
 		        +"</div>"
 		        +"<ul id='sns'>"
-		        	+"<li><a href='#'></a></li>"
-		        	+"<li><a href='#'></a></li>"
-		        	+"<li><a href='#'></a></li>"
-		        	+"<li><a href='#'></a></li>"
-		        	+"<li><a href='#'></a></li>"
-		        	+"<li><a href='#'></a></li>"
+		        	+"<li class='mail'><a href='mailto:test@test.com'><span>e-mail</span></a></li>"
+		        	+"<li class='line'><a href='#'><span>line</span></a></li>"
+		        	+"<li class='instagram'><a href='#'><span>instagram</span></a></li>"
 		        +"</ul>"
 		        +"<button class='more_open'>More info</button>"
 	        +"</div>"
@@ -67,16 +64,16 @@
         var mobileWidth = 768;
         var infoWinWidth, infoWinHeight;
 
-        if(viewport.width < mobileWidth){
+        if(viewport.width < mobileWidth){ //mobile
         	pxOffX = -(viewport.width/2); //it moves infowindow when you move the map
         	pxOffY = -(viewport.height/1.6);
         	infoWinWidth = viewport.width
         	infoWinHeight = viewport.height/2.4;
         	// document.getElementById("infoWin").style.fontSize = "200%";
-        }else if(viewport.width >= mobileWidth){
-        	pxOffX = -310;
+        }else if(viewport.width >= mobileWidth){ //desktop
+        	pxOffX = -280;
         	pxOffY = -160;
-        	infoWinWidth = 280
+        	infoWinWidth = 240
         	infoWinHeight = infoWinWidth *0.8; //It is calculating height 
         }
 
@@ -114,7 +111,7 @@
     <!-- <a id="test" href="#more"></a> -->
     <div id="map_canvas" style="width: 100%; height: 100%"></div>
     <div id='more'>
-      <img class="trexImage" src="images/walk.gif">
+      <!-- <img class="trexImage" src="images/walk.gif"> -->
       <button class="more_close">✖︎</button>
 		  <div class="info">
   				<h2>Business</h2>
@@ -136,6 +133,13 @@
   				</ul>
   				<h2>CEO</h2>
   				<p>Shinichi Watanabe</p>
+          <div class="shops">
+            <ul>
+              <li class="yahoo"><a href="#"><span>Yahoo</span></a></li>
+              <li class="rakuten"><a href="#"><span>Rakuten</span></a></li>
+              <li class="amazon"><a href="#"><span>Amazon</span></a></li>
+            </ul>
+          </div>
   		</div><!-- Close info -->
     </div><!-- Close more -->
     <script type="text/javascript" src="js/jquery-3.1.0.js"></script>
@@ -144,6 +148,8 @@
 		    			$('#more').popup();
 					})
     </script>
+
+    <span id="copyright">Copyright© T.Rex Inc. All right reserved.</span>
 
   </body>
   <!-- <script type="text/javascript" src="js/jquery-3.1.0.js"></script> -->

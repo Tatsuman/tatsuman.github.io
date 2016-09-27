@@ -182,6 +182,7 @@ html, body {
 	font-family: pixelMplus12;
 	font-weight: 100;
 	line-height: 1.2em;
+	padding: 2em 2em 2em 0;
 }
 
 #more > div.info > h2{
@@ -380,7 +381,10 @@ li.instagram{
 		transform: scale(1.2);
 	}
 	#more{
-		height: none;
+		width: 100%;
+		height: 100%;
+		margin: 0;
+		padding: 0;
 	}
 }
 

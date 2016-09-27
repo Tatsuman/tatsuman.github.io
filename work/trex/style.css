@@ -77,23 +77,23 @@ html, body {
 #infoWin > div > h1{
 	font-family: PixelMplus12;
 	font-weight: 400;
-	font-size: 2em;
-	margin:1em 0 0 0;
+	font-size: 20px;
+	margin:20px 0 0 0;
 }
 
 #infoWin > div > blockquote{
 	font-family: PixelMplus12;
 	font-weight:100;
-	font-size: 1.5em;
-	margin: 0 1em;
+	font-size: 15px;
+	margin: 0 20px;
 }
 
 #infoWin > a{
 	text-decoration: none;
 	color: rgb(0,0,0);
-	font-size: 1.5em;
+	font-size: 15px;
 	font-weight: 100;
-	padding-top: 0.6em;
+	padding-top: 6px;
 }
 
 #infoWin > div > a{
